@@ -1,13 +1,30 @@
 version: '3.8'
 
 services:
-  librewolf:
-    image: ibrew/librewolf
-    container_name: librewolf-privado
-    ipc: host       # Reemplaza a --shm-size=2g. Da acceso a la memoria compartida del host.
+  firefox-web:
+    image: jlesage/firefox
+    container_name: firefox-tor-web
+    ports:
+      - "5800:5800"
+    shm_size: '2g'
+    # MEJORA DE HARDENING
     environment:
-      - DISPLAY=$DISPLAY
-      - PULSE_SERVER=unix:/run/user/1000/pulse # Reemplaza el $(id -u)
-    volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix:ro
-      - /run/user/1000/pulse:/run/user/1000/pulse # Reemplaza el $(id -u)
+      - USER_ID=$(id -u)
+      - GROUP_ID=$(id -g)
+    # ME GUSTAN LOS EMOJIS
+    depends_on:
+      - tor
+    networks:
+      - privada
+
+  tor:
+    # Servicio de Tor
+    image: dockurr/tor
+    container_name: tor-proxy
+    networks:
+      - privada
+    tmpfs:
+      - /var/lib/tor
+
+networks:
+  privada:
