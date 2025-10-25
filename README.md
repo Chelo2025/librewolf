@@ -8,7 +8,7 @@ Fue ejecutado en **Debian 13 (Trixie) XFCE de 64 bits**.
 
 El objetivo de este proyecto no es el anonimato de red (para eso esta Tails OS), sino la **seguridad del host** y la **amnesia forense**.
 
-1.  **Aislamiento:** El navegador se ejecuta en un contenedor sellado. Si descargas o ejecutas malware desde la darknet, quedará atrapado dentro del contenedor y no podrá infectar tu sistema Debian.
+1.  **Aislamiento:** El navegador se ejecuta en un contenedor sellado. Si descargas o ejecutas malware desde la darknet, quedará atrapado dentro del contenedor y no podrá infectar tu sistema operativo.
 2.  **Anti-Forense (Amnesia Manual):** La configuración está diseñada para no escribir ningún dato en el disco duro. Al destruir el contenedor, todos los rastros de la sesión (historial, cookies, caché) se eliminan.
 
 ## Implementación y Uso
