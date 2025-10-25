@@ -11,6 +11,6 @@ services:
     environment:
       - DISPLAY_WIDTH=1366
       - DISPLAY_HEIGHT=768
-      - USER_ID=$(id -u)
-      - GROUP_ID=$(id -g)
+      - USER_ID=1000  # EJECUTAR id -u según el resultado en tu linux
+      - GROUP_ID=1000 # ejecutar id -g según el resultado en tu linux
     # ME GUSTAN LOS EMOJIS
